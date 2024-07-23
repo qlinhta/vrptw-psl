@@ -1,0 +1,7 @@
+numpy~=2.0.0
+matplotlib~=3.9.1
+pandas~=2.2.2
+prettytable~=3.10.2
+argparse~=1.4.0
+scipy~=1.14.0
+ortools~=9.10.4067
