@@ -233,7 +233,7 @@ def solve_vrptw(file: str, cust_size: int, large_constant: int):
         logger.error(colorful_log('SCIP solver is not available.', 'red'))
         return file, cust_size, 'NA', 'NA', 'NA', 'NA'
 
-    solver.SetTimeLimit(300000)
+    solver.SetTimeLimit(600000)
 
     vehicles = list(range(1, 26))
     distance = {(i, j): dist_matrix.at[i, j] for i in all_customers for j in all_customers}
