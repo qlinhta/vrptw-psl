@@ -1,6 +1,6 @@
 import numpy as np
-from typing import List, Tuple, Callable
-from utils import calc_distance, check_time, start_times
+from typing import List, Tuple
+from utils import calc_distance, check_time
 
 
 def opt2_move(tour: List[int], dist_matrix: np.ndarray, travel_time: np.ndarray, service_time: List[float],
