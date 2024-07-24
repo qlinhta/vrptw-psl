@@ -48,7 +48,7 @@ def load_data(file_path: str, cust_size: int):
     return dist_matrix, capacity, customers, all_customers, ready_times, due_times, service_times, demands
 
 
-def solve_vrptw(file: str, cust_size: int, large_constant: int):
+def solve_vrptw(file: str, cust_size: int, large_constant: int, workers: int, time_limit: int):
     logger.info(colorful_log(f'Starting to process file: {file} with {cust_size} customers', 'blue'))
     file_path = os.path.join(os.path.dirname(os.path.realpath('__file__')), 'src', 'dataset', f'{file}.csv')
     dist_matrix, capacity, customers, all_customers, ready_times, due_times, service_times, demands = load_data(
@@ -62,7 +62,8 @@ def solve_vrptw(file: str, cust_size: int, large_constant: int):
         logger.error(colorful_log('SCIP solver is not available.', 'red'))
         return file, cust_size, 'NA', 'NA', 'NA', 'NA'
 
-    solver.SetTimeLimit(600000)
+    solver.SetNumThreads(workers)
+    solver.SetTimeLimit(time_limit * 60000)
 
     vehicles = list(range(1, 26))
     distance = {(i, j): dist_matrix.at[i, j] for i in all_customers for j in all_customers}
@@ -153,6 +154,8 @@ def main():
     parser.add_argument('--files', nargs='+', default=["R101", "C101", "RC101"], help='List of files to process')
     parser.add_argument('--customers', type=int, default=10, help='Number of customers')
     parser.add_argument('--large_constant', type=int, default=10000, help='Large constant for MTZ constraints')
+    parser.add_argument('--workers', type=int, default=1, help='Number of threads')
+    parser.add_argument('--time', type=int, default=10, help='Time limit in minutes')
     args = parser.parse_args()
 
     summary_table = PrettyTable()
@@ -160,7 +163,7 @@ def main():
 
     results = []
     for file in args.files:
-        result = solve_vrptw(file, args.customers, args.large_constant)
+        result = solve_vrptw(file, args.customers, args.large_constant, args.workers, args.time)
         results.append(result)
 
     for result in results:
