@@ -61,8 +61,8 @@ def graph(tours: List[List[int]], x: List[float], y: List[float], dist_matrix: n
     ax.set_xlabel('x')
     ax.set_ylabel('y')
     # ax.legend(fontsize=10)
-    os.makedirs('./figures/solomon/', exist_ok=True)
-    fig.savefig(f'./figures/solomon/slm_{file_name}_{cust_size}.pdf', format='pdf')
+    os.makedirs('./figures/insertion/', exist_ok=True)
+    fig.savefig(f'./figures/insertion/slm_{file_name}_{cust_size}.pdf', format='pdf')
     plt.close(fig)
 
 
@@ -204,7 +204,7 @@ def run_vns(file_names: List[str], cust_size: int, mu: int, lam: int, a1: int, a
                         min(vehicle_counts), np.mean(vehicle_counts), np.std(vehicle_counts), np.mean(exec_times)])
 
     print(summary_table)
-    save_results_to_csv(results, f'./results/solomon/slm_results_{cust_size}.csv')
+    save_results_to_csv(results, f'./results/insertion/slm_results_{cust_size}.csv')
 
 
 def save_results_to_csv(results, output_file):
@@ -230,4 +230,4 @@ def main():
 if __name__ == "__main__":
     main()
 
-# python3 ./src/solomon.py --files R101 C101 RC101 R102 C102 RC102 R103 C103 RC103 R104 C104 RC104 R105 C105 RC105 R106 C106 RC106 R107 C107 RC107 R108 C108 RC108 --customers 50 --iterations 10
+# python3 ./src/insertion.py --files R101 C101 RC101 R102 C102 RC102 R103 C103 RC103 R104 C104 RC104 R105 C105 RC105 R106 C106 RC106 R107 C107 RC107 R108 C108 RC108 --customers 50 --iterations 10
