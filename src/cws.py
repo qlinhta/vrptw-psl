@@ -260,4 +260,4 @@ def main():
 if __name__ == "__main__":
     main()
 
-# python3 ./src/heuristic_main.py --files R101 C101 RC101 R102 C102 RC102 R103 C103 RC103 R104 C104 RC104 R105 C105 RC105 R106 C106 RC106 R107 C107 RC107 R108 C108 RC108 --customers 50 --iterations 10
+# python3 ./src/cws.py --files R101 C101 RC101 R102 C102 RC102 R103 C103 RC103 R104 C104 RC104 R105 C105 RC105 R106 C106 RC106 R107 C107 RC107 R108 C108 RC108 --customers 50 --iterations 10
