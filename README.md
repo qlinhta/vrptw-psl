@@ -11,11 +11,29 @@ pip install -r requirements.txt
 
 ## Usage
 
-Reproduce the results of the project by running the following command:
+Run a single file or multiple files with the heuristic solutions by running the following command:
 
+```bash
+python3 ./src/insertion.py --files "R101" "R102" "R103" --customers 50 --iterations 10
+```
+```bash
+python3 ./src/cws.py --files "R101" "R102" "R103" --customers 50 --iterations 10
+```
+```bash
+python3 ./src/sweep.py --files "R101" "R102" "R103" --customers 50 --iterations 10
+```
+
+Run a single file or multiple files with the exact solution by running the following command:
+
+```bash
+python3 ./src/exact.py --files "R101" "R102" "R103" --customers 50 --large_constant 10000 --workers 8 --time 10
+```
+
+Reproduce the results of the project by running the following command:
 ```bash
 bash experiments.sh
 ```
+Here is the content of the `experiments.sh` file:
 ```bash
 #!/bin/bash
 
@@ -39,3 +57,7 @@ python3 ./src/exact.py --files "${FILES[@]}" --customers $CUSTOMERS --large_cons
 
 echo "All tasks completed."
 ```
+
+## Results
+
+The results of the experiments are stored in the `results` and `figures` folder.

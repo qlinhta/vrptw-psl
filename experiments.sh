@@ -10,6 +10,6 @@ echo "Running heuristic solution..."
 python3 ./src/insertion.py --files "${FILES[@]}" --customers $CUSTOMERS --iterations $ITERATIONS
 
 echo "Running exact solution..."
-python3 ./src/exact.py --files "${FILES[@]}" --customers $CUSTOMERS --large_constant $LARGE_CONSTANT
+python3 ./src/exact.py --files "${FILES[@]}" --customers $CUSTOMERS --large_constant $LARGE_CONSTANT --workers 8 --time 10
 
 echo "All tasks completed."
