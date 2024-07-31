@@ -14,20 +14,28 @@ pip install -r requirements.txt
 Run a single file or multiple files with the heuristic solutions by running the following command:
 
 ```bash
-python3 ./src/insertion.py --files "R101" "R102" "R103" --customers 50 --iterations 10
+python3 ./src/insertion.py --files R101 C101 RC101 --customers 50 --iterations 10
 ```
 ```bash
-python3 ./src/cws.py --files "R101" "R102" "R103" --customers 50 --iterations 10
+python3 ./src/cws.py --files R101 C101 RC101 --customers 50 --iterations 10
 ```
 ```bash
-python3 ./src/sweep.py --files "R101" "R102" "R103" --customers 50 --iterations 10
+python3 ./src/sweep.py --files R101 C101 RC101 --customers 50 --iterations 10
 ```
 
 Run a single file or multiple files with the exact solution by running the following command:
 
 ```bash
-python3 ./src/exact.py --files "R101" "R102" "R103" --customers 50 --large_constant 10000 --workers 8 --time 10
+python3 ./src/exact.py --files R101 C101 RC101 --customers 50 --large_constant 10000 --workers 8 --time 10
 ```
+
+Arguments has the following meaning:
+- `--files`: List of files to be processed.
+- `--customers`: Number of customers to be considered.
+- `--iterations`: Number of iterations to be executed.
+- `--large_constant`: Large constant to be used in the exact solution.
+- `--workers`: Number of workers to be used in the exact solution.
+- `--time`: Time limit to be used in the exact solution (in minutes).
 
 Reproduce the results of the project by running the following command:
 ```bash
