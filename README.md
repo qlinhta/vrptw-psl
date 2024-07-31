@@ -9,6 +9,12 @@ The project was developed using Python 3.10. The required packages are listed in
 pip install -r requirements.txt
 ```
 
+## Results
+
+The results of the experiments are stored in the `results` and `figures` folder. Comparable results are shown in the notebook in `./area51/viz.ipynb`.
+
+<a href="figures/insertion.png"><img src="example.png" alt="Insertion" width="400"/></a>
+
 ## Usage
 
 Run a single file or multiple files with the heuristic solutions by running the following command:
@@ -65,7 +71,3 @@ python3 ./src/exact.py --files "${FILES[@]}" --customers $CUSTOMERS --large_cons
 
 echo "All tasks completed."
 ```
-
-## Results
-
-The results of the experiments are stored in the `results` and `figures` folder.
